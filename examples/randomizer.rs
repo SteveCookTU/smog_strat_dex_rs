@@ -9,14 +9,14 @@ async fn main() -> smog_strat_dex_rs::Result<()> {
 
     let mut pokemon;
     let mut move_set;
-    while {pokemon = get_pokemon(&basics).await?; move_set = get_move_set(pokemon).await?; move_set.is_none() } {}
+    while {pokemon = get_pokemon(&basics)?; move_set = get_move_set(pokemon).await?; move_set.is_none() } {}
     if let Some((format, move_set)) = move_set {
         println!("Format: {format}\n{move_set}");
     }
     Ok(())
 }
 
-async fn get_pokemon(basics: &BasicsResponse) -> smog_strat_dex_rs::Result<&BasicsPokemon> {
+fn get_pokemon(basics: &BasicsResponse) -> smog_strat_dex_rs::Result<&BasicsPokemon> {
     let pokemon_list = basics
         .pokemon
         .iter()
