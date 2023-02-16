@@ -96,16 +96,23 @@ pub struct Member {
 impl Display for MoveSet {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         writeln!(f, "{} @ {}", self.pokemon, self.items.join(" / "))?;
-        writeln!(f, "Ability: {}", self.abilities.join(" / "))?;
+        if !self.abilities.is_empty() {
+            writeln!(f, "Ability: {}", self.abilities.join(" / "))?;
+        }
         if !self.tera_types.is_empty() {
             writeln!(f, "Tera Type: {}", self.tera_types.join(" / "))?;
         }
-        writeln!(f, "EVs: {}", self.get_ev_configs())?;
+        let ev_configs = self.get_ev_configs();
+        if !ev_configs.is_empty() {
+            writeln!(f, "EVs: {ev_configs}")?;
+        }
         let iv_configs = self.get_iv_configs();
         if !iv_configs.is_empty() {
-            writeln!(f, "IVs: {}", iv_configs)?;
+            writeln!(f, "IVs: {iv_configs}")?;
         }
-        writeln!(f, "{} Nature", self.natures.join(" / "))?;
+        if !self.natures.is_empty() {
+            writeln!(f, "{} Nature", self.natures.join(" / "))?;
+        }
         for moves in self.move_slots.iter() {
             let moves = moves
                 .iter()
