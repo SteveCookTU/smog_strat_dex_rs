@@ -6,7 +6,7 @@ pub(crate) struct BasicsRequest {
     pub gen: Generation,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct BasicsResponse {
     pub pokemon: Vec<BasicsPokemon>,
     pub formats: Vec<Format>,
@@ -17,7 +17,7 @@ pub struct BasicsResponse {
     pub items: Vec<Item>,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct BasicsPokemon {
     pub name: String,
     pub hp: u8,
@@ -36,7 +36,7 @@ pub struct BasicsPokemon {
     pub oob: Option<PokemonOob>,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct PokemonOob {
     pub dex_number: i16,
     pub evos: Vec<String>,
@@ -45,7 +45,7 @@ pub struct PokemonOob {
     pub gen_family: Vec<String>,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct Format {
     pub name: String,
     pub shorthand: String,
@@ -53,7 +53,7 @@ pub struct Format {
     pub gen_family: Vec<String>,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct Nature {
     pub name: String,
     pub hp: f32,
@@ -67,7 +67,7 @@ pub struct Nature {
     pub gen_family: Vec<String>,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct Ability {
     pub name: String,
     pub description: String,
@@ -77,7 +77,7 @@ pub struct Ability {
     pub gen_family: Vec<String>,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct Move {
     pub name: String,
     #[serde(rename = "isNonstandard")]
@@ -95,7 +95,7 @@ pub struct Move {
     pub gen_family: Vec<String>,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct Type {
     pub name: String,
     pub atk_effectives: Vec<(String, f32)>,
@@ -104,7 +104,7 @@ pub struct Type {
     pub description: String,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct Item {
     pub name: String,
     pub description: String,

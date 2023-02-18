@@ -9,14 +9,14 @@ pub(crate) struct PokemonRequest<'a> {
     pub language: &'static str,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct PokemonResponse {
     pub languages: Vec<String>,
     pub learnset: Vec<String>,
     pub strategies: Vec<Strategy>,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct Strategy {
     pub format: String,
     pub overview: String,
@@ -26,7 +26,7 @@ pub struct Strategy {
     pub credits: Credits,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct MoveSet {
     pub name: String,
     pub pokemon: String,
@@ -46,7 +46,7 @@ pub struct MoveSet {
     pub natures: Vec<String>,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct MoveSlot {
     #[serde(rename = "move")]
     pub move_name: String,
@@ -54,7 +54,7 @@ pub struct MoveSlot {
     pub move_type: Option<String>,
 }
 
-#[derive(Deserialize, Debug, Copy, Clone)]
+#[derive(Deserialize, Serialize, Debug, Copy, Clone)]
 pub struct EvConfig {
     pub hp: u8,
     pub atk: u8,
@@ -64,7 +64,7 @@ pub struct EvConfig {
     pub spe: u8,
 }
 
-#[derive(Deserialize, Debug, Copy, Clone)]
+#[derive(Deserialize, Serialize, Debug, Copy, Clone)]
 pub struct IvConfig {
     pub hp: u8,
     pub atk: u8,
@@ -74,20 +74,20 @@ pub struct IvConfig {
     pub spe: u8,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct Credits {
     pub teams: Vec<Team>,
     #[serde(rename = "writtenBy")]
     pub written_by: Vec<Member>,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct Team {
     pub name: String,
     pub members: Vec<Member>,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct Member {
     pub user_id: usize,
     pub username: String,

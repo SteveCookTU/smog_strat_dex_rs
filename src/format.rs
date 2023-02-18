@@ -8,7 +8,7 @@ pub(crate) struct FormatRequest<'a> {
     pub language: &'static str,
 }
 
-#[derive(Deserialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct FormatResponse {
     pub languages: Vec<String>,
     pub description: String,
