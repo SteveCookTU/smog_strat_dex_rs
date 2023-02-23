@@ -26,7 +26,7 @@ pub struct Strategy {
     pub credits: Credits,
 }
 
-#[derive(Deserialize, Serialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug, PartialEq)]
 pub struct MoveSet {
     pub name: String,
     pub pokemon: String,
@@ -46,7 +46,7 @@ pub struct MoveSet {
     pub natures: Vec<String>,
 }
 
-#[derive(Deserialize, Serialize, Clone, Debug)]
+#[derive(Deserialize, Serialize, Clone, Debug, PartialEq)]
 pub struct MoveSlot {
     #[serde(rename = "move")]
     pub move_name: String,
@@ -54,7 +54,7 @@ pub struct MoveSlot {
     pub move_type: Option<String>,
 }
 
-#[derive(Deserialize, Serialize, Debug, Copy, Clone)]
+#[derive(Deserialize, Serialize, Debug, Copy, Clone, PartialEq)]
 pub struct EvConfig {
     pub hp: u8,
     pub atk: u8,
@@ -64,7 +64,7 @@ pub struct EvConfig {
     pub spe: u8,
 }
 
-#[derive(Deserialize, Serialize, Debug, Copy, Clone)]
+#[derive(Deserialize, Serialize, Debug, Copy, Clone, PartialEq)]
 pub struct IvConfig {
     pub hp: u8,
     pub atk: u8,
