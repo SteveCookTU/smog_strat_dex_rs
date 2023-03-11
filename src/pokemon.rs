@@ -132,7 +132,7 @@ impl Display for MoveSet {
 }
 
 impl MoveSet {
-    fn get_ev_configs(&self) -> String {
+    pub fn get_ev_configs(&self) -> String {
         let mut ev_configs = Vec::new();
         for ev_config in self.ev_configs.iter() {
             let &EvConfig {
@@ -167,7 +167,7 @@ impl MoveSet {
         ev_configs.join(" | ")
     }
 
-    fn get_iv_configs(&self) -> String {
+    pub fn get_iv_configs(&self) -> String {
         let mut iv_configs = Vec::new();
         for iv_config in self.iv_configs.iter() {
             let &IvConfig {
