@@ -89,7 +89,7 @@ pub struct Team {
 
 #[derive(Deserialize, Serialize, Clone, Debug)]
 pub struct Member {
-    pub user_id: usize,
+    pub user_id: Option<usize>,
     pub username: String,
 }
 
