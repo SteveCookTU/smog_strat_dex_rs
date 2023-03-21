@@ -22,7 +22,7 @@ impl TryFrom<&str> for Generation {
     fn try_from(value: &str) -> Result<Self, Self::Error> {
         match value {
             "sv" => Ok(Generation::ScarletViolet),
-            "ss" => Ok(Generation::ScarletViolet),
+            "ss" => Ok(Generation::SwordShield),
             "sm" => Ok(Generation::SunMoon),
             "xy" => Ok(Generation::XY),
             "bw" => Ok(Generation::BlackWhite),
